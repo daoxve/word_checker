@@ -1,1 +1,0 @@
-enum SettingType { iconButton, switchButton }

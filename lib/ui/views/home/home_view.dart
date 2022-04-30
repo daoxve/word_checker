@@ -44,6 +44,7 @@ class HomeView extends StatelessWidget {
                 preferredSize: Size.fromHeight(1),
                 child: Divider(
                   thickness: 1.3,
+                  height: 1,
                 ),
               ),
               elevation: 0,
