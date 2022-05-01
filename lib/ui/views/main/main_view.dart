@@ -14,6 +14,8 @@ class MainView extends StatelessWidget {
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           backgroundColor: appTheme(context).backgroundColor,
+          selectedItemColor: Colors.blue,
+          unselectedItemColor: appTheme(context).iconTheme.color?.withOpacity(0.5),
           currentIndex: model.currentIndex,
           onTap: model.setIndex,
           items: const [

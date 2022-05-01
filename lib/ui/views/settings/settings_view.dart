@@ -16,7 +16,7 @@ class SettingsView extends StatelessWidget {
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(54),
           child: AppBar(
-            backgroundColor: Colors.white,
+            backgroundColor: appTheme(context).backgroundColor,
             title: const Padding(
               padding: EdgeInsets.only(top: 8),
               child: Text('Settings'),
@@ -41,7 +41,7 @@ class SettingsView extends StatelessWidget {
                 heading: 'Look & feel',
                 buttons: [
                   TextButton.icon(
-                    onPressed: () {},
+                    onPressed: model.changeThemeFunc,
                     icon: const Icon(Icons.palette),
                     label: Text(
                       'Change Theme',
@@ -72,8 +72,8 @@ class SettingsView extends StatelessWidget {
                   SwitchTile(
                     icon: Icons.save,
                     label: 'Display previous text on start',
-                    switchValue: true,
-                    onSwitchChanged: (val) {},
+                    switchValue: model.displayPreviousTextOnStart,
+                    onSwitchChanged: model.dispPrevTextOnStartToggle,
                   ),
                 ],
               ),

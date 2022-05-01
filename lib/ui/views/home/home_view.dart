@@ -8,25 +8,24 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final textTheme = theme.textTheme;
-
     return ViewModelBuilder<HomeViewModel>.reactive(
-      viewModelBuilder: () => HomeViewModel(),
+      viewModelBuilder: () => locator<HomeViewModel>(),
+      disposeViewModel: false,
+      initialiseSpecialViewModelsOnce: true,
       builder: (context, model, child) {
         return Scaffold(
-          backgroundColor: theme.backgroundColor,
+          backgroundColor: appTheme(context).backgroundColor,
           appBar: PreferredSize(
             preferredSize: const Size.fromHeight(54),
             child: AppBar(
-              backgroundColor: Colors.white,
+              backgroundColor: appTheme(context).backgroundColor,
               title: const Padding(
                 padding: EdgeInsets.only(top: 8),
                 child: Text('Word Checker'),
               ),
               actions: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 7.0),
+                  padding: const EdgeInsets.only(top: 8.0),
                   child: Visibility(
                     visible: model.wordCount != 0,
                     child: TextButton(
@@ -57,6 +56,7 @@ class HomeView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(12.0, 0.0, 12.0, 16.0),
                 child: TextField(
+                  key: const PageStorageKey('storage-key'),
                   controller: model.textEdController,
                   maxLines: 35,
                   scrollPhysics: const BouncingScrollPhysics().applyTo(
@@ -65,12 +65,12 @@ class HomeView extends StatelessWidget {
                   decoration: InputDecoration(
                     hintText: kHintText,
                     hintStyle: TextStyle(
-                      color: theme.iconTheme.color!.withOpacity(0.3),
+                      color: appTheme(context).iconTheme.color!.withOpacity(0.3),
                     ),
                     border: InputBorder.none,
                   ),
                   style: TextStyle(
-                    color: theme.iconTheme.color,
+                    color: appTheme(context).iconTheme.color,
                     fontSize: 16,
                   ),
                   onChanged: model.onTextFieldChange,

@@ -9,6 +9,7 @@ environment:
   sdk: ">=2.15.0 <3.0.0"
 
 dependencies:
+  animations: ^2.0.2
   another_flushbar: ^1.10.28
   cupertino_icons: ^1.0.2
   flutter:
@@ -20,7 +21,7 @@ dependencies:
     git:
       url: https://github.com/thecokerdavid/stacked.git
       path: packages/stacked_services/
-      ref: 6c6c7da
+      branch: master
   stacked_themes: ^0.3.8+1
 
 dev_dependencies:

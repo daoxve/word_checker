@@ -15,6 +15,7 @@ export 'package:word_checker/app/app.logger.dart';
 // Enums
 export 'package:word_checker/core/enums/snackbar_type.dart';
 export 'package:word_checker/core/enums/dialog_type.dart';
+export 'package:word_checker/core/enums/theme_radio.dart';
 
 // Styles
 export 'package:word_checker/styles/strings.dart';

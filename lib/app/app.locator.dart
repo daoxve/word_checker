@@ -10,6 +10,7 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 
 import '../exports.dart';
+import '../ui/views/home/home_viewmodel.dart';
 
 final locator = StackedLocator.instance;
 
@@ -23,4 +24,5 @@ void setupLocator({String? environment, EnvironmentFilter? environmentFilter}) {
   locator.registerLazySingleton(() => DialogService());
   locator.registerLazySingleton(() => SnackbarService());
   locator.registerLazySingleton(() => BottomSheetService());
+  locator.registerSingleton(HomeViewModel());
 }

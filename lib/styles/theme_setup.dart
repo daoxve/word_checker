@@ -1,15 +1,15 @@
-import 'package:flutter/services.dart';
 import 'package:word_checker/exports.dart';
 
 List<ThemeData> getThemes() {
   return [
+    // Light
     ThemeData(
       backgroundColor: kcWhite,
       colorScheme: ColorScheme.fromSwatch().copyWith(
-        secondary: kcBlack12,
+        secondary: kcBlue,
         onSecondary: kcBlack,
         primaryContainer: kcLightVar,
-        secondaryContainer: kcLightVarAccent,
+        secondaryContainer: kcWhite.withOpacity(0.2),
         background: kcWhiteBackground,
         brightness: Brightness.light,
       ),
@@ -32,13 +32,15 @@ List<ThemeData> getThemes() {
       highlightColor: Colors.transparent,
       splashColor: Colors.transparent,
     ),
+
+    // Dim
     ThemeData(
       backgroundColor: kcDark,
       colorScheme: ColorScheme.fromSwatch().copyWith(
-        secondary: kcDarkAccent,
+        secondary: kcBlue,
         onSecondary: kcWhite,
         primaryContainer: kcDarkVar,
-        secondaryContainer: kcDarkVarAccent,
+        secondaryContainer: Colors.transparent,
         background: kcDarkAccent,
         brightness: Brightness.dark,
       ),
@@ -50,25 +52,47 @@ List<ThemeData> getThemes() {
         subtitle1: kSubtitle1.copyWith(color: kcWhite),
         subtitle2: kSubtitle2.copyWith(color: kcWhite54),
       ),
+      appBarTheme: const AppBarTheme(
+        titleTextStyle: TextStyle(
+          fontSize: 18.0,
+          fontWeight: FontWeight.w500,
+          color: Colors.white,
+        ),
+      ),
       hintColor: Colors.white,
       highlightColor: Colors.transparent,
       splashColor: Colors.transparent,
     ),
+
+    // Lights out
     ThemeData(
-      backgroundColor: Colors.white,
-      accentColor: Colors.green,
-    ),
-    ThemeData(
-      backgroundColor: Colors.purple,
-      accentColor: Colors.green,
-    ),
-    ThemeData(
-      backgroundColor: Colors.black,
-      accentColor: Colors.red,
-    ),
-    ThemeData(
-      backgroundColor: Colors.red,
-      accentColor: Colors.blue,
+      backgroundColor: kcBlack,
+      colorScheme: ColorScheme.fromSwatch().copyWith(
+        secondary: kcBlue,
+        onSecondary: kcWhite,
+        primaryContainer: kcDarkVar,
+        secondaryContainer: kcBlack.withOpacity(0.02),
+        background: kcDarkAccent,
+        brightness: Brightness.dark,
+      ),
+      iconTheme: const IconThemeData(color: kcWhite),
+      textTheme: TextTheme(
+        headline1: kHeadline1.copyWith(color: kcWhite),
+        headline2: kHeadline2.copyWith(color: kcWhite),
+        headline6: kHeadline6.copyWith(color: kcWhite),
+        subtitle1: kSubtitle1.copyWith(color: kcWhite),
+        subtitle2: kSubtitle2.copyWith(color: kcWhite54),
+      ),
+      appBarTheme: const AppBarTheme(
+        titleTextStyle: TextStyle(
+          fontSize: 18.0,
+          fontWeight: FontWeight.w500,
+          color: Colors.white,
+        ),
+      ),
+      hintColor: Colors.white,
+      highlightColor: Colors.transparent,
+      splashColor: Colors.transparent,
     ),
   ];
 }

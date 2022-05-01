@@ -15,7 +15,7 @@ class BottomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: kcGrey,
+      color: appTheme(context).colorScheme.background,
       elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),

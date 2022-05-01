@@ -13,6 +13,7 @@ const Color kcWhiteBackground = Color(0xFFF6F7FE);
 const Color kcBlack = Color(0xFF000000);
 const Color kcBlack12 = Color(0x1F000000);
 const Color kcBlack54 = Color(0x8A000000);
+const Color kcBlue = Color(0xFF2196F3);
 const Color kcGrey = Color(0xFFE8E2E2);
 const Color kcLightVar = Color(0xFFF7F7F7);
 const Color kcLightVarAccent = Color(0xFFF2F0F4);

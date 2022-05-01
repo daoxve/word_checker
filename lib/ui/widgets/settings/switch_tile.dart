@@ -18,28 +18,22 @@ class SwitchTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Visibility(
-          visible: icon != null,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Icon(
-              icon ?? Icons.abc,
-              color: Colors.blue,
-            ),
-          ),
+    return SwitchListTile(
+      value: switchValue,
+      activeColor: appTheme(context).colorScheme.secondary,
+      onChanged: onSwitchChanged,
+      contentPadding: EdgeInsets.zero,
+      secondary: Padding(
+        padding: const EdgeInsets.only(left: 16.0),
+        child: Icon(
+          icon ?? Icons.abc,
+          color: appTheme(context).colorScheme.secondary,
         ),
-        Text(
-          label,
-          style: labelStyle ?? appTextTheme(context).bodyText2,
-        ),
-        const Spacer(),
-        Switch(
-          value: switchValue,
-          onChanged: onSwitchChanged,
-        ),
-      ],
+      ),
+      title: Text(
+        label,
+        style: labelStyle ?? appTextTheme(context).bodyText2,
+      ),
     );
   }
 }

@@ -1,1 +1,1 @@
-enum DialogType { radio }
+enum DialogType { theme }
