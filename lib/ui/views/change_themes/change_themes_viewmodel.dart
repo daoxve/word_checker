@@ -1,5 +1,4 @@
 import 'package:word_checker/exports.dart';
-import 'package:word_checker/styles/theme_setup.dart';
 
 class ChangeThemesViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
@@ -45,16 +44,4 @@ class ChangeThemesViewModel extends BaseViewModel {
   void setGroupVal(context) {
     groupVal = getThemeManager(context).selectedThemeIndex;
   }
-}
-
-class ThemeDetailModel {
-  ThemeDetailModel({
-    required this.name,
-    required this.desc,
-    required this.backgroundColor,
-  });
-
-  final String name;
-  final String desc;
-  final Color backgroundColor;
 }

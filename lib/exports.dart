@@ -23,10 +23,14 @@ export 'package:word_checker/styles/strings.dart';
 export 'package:word_checker/styles/colors.dart';
 export 'package:word_checker/styles/styles.dart';
 export 'package:word_checker/styles/globals.dart';
+export 'package:word_checker/styles/theme_setup.dart';
 
 // Utils
 export 'package:word_checker/core/utils/extensions.dart';
 export 'package:word_checker/core/utils/gap.dart';
+
+// Models
+export 'package:word_checker/core/models/theme_detail_model.dart';
 
 // Views
 export 'package:word_checker/ui/views/home/home_view.dart';
