@@ -25,5 +25,4 @@ void setupLocator({String? environment, EnvironmentFilter? environmentFilter}) {
   locator.registerLazySingleton(() => SnackbarService());
   locator.registerLazySingleton(() => BottomSheetService());
   locator.registerSingleton(HomeViewModel());
-  locator.registerSingleton(ThemeService());
 }

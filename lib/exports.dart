@@ -1,4 +1,5 @@
 // Packages
+export 'dart:async';
 export 'package:flutter/foundation.dart' hide Factory;
 export 'package:flutter/material.dart';
 export 'package:stacked/stacked.dart';
@@ -24,6 +25,7 @@ export 'package:word_checker/styles/styles.dart';
 export 'package:word_checker/styles/globals.dart';
 
 // Utils
+export 'package:word_checker/core/utils/extensions.dart';
 export 'package:word_checker/core/utils/gap.dart';
 
 // Views

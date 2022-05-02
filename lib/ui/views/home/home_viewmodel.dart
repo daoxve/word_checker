@@ -1,11 +1,9 @@
-import 'dart:async';
-
 import 'package:word_checker/exports.dart';
 
 class HomeViewModel extends BaseViewModel {
   final log = getLogger('MainViewModel');
 
-  final _navigationService = locator<NavigationService>();
+  // final _navigationService = locator<NavigationService>();
   final textEdController = TextEditingController();
 
   int wordCount = 0;

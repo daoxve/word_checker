@@ -4,10 +4,10 @@ import 'package:word_checker/ui/views/change_themes/change_themes_view.dart';
 
 @StackedApp(
   routes: [
-    CustomRoute(page: MainView, initial: true),
-    CustomRoute(page: HomeView),
-    CustomRoute(page: SettingsView),
-    CustomRoute(page: ChangeThemesView),
+    CupertinoRoute(page: MainView, initial: true),
+    CupertinoRoute(page: HomeView),
+    CupertinoRoute(page: SettingsView),
+    CupertinoRoute(page: ChangeThemesView),
   ],
   dependencies: [
     LazySingleton(classType: NavigationService),
@@ -15,7 +15,6 @@ import 'package:word_checker/ui/views/change_themes/change_themes_view.dart';
     LazySingleton(classType: SnackbarService),
     LazySingleton(classType: BottomSheetService),
     Singleton(classType: HomeViewModel),
-    Singleton(classType: ThemeService),
   ],
   logger: StackedLogger(),
 )

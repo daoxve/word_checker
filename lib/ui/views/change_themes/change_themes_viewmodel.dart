@@ -1,6 +1,5 @@
 import 'package:word_checker/exports.dart';
 import 'package:word_checker/styles/theme_setup.dart';
-import 'package:collection/collection.dart';
 
 class ChangeThemesViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
