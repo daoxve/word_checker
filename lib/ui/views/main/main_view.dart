@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:word_checker/exports.dart';
 
 import 'main_viewmodel.dart';
@@ -10,7 +11,17 @@ class MainView extends StatelessWidget {
     return ViewModelBuilder<MainViewModel>.reactive(
       viewModelBuilder: () => MainViewModel(),
       builder: (context, model, child) => Scaffold(
-        body: model.getViewForIndex(model.currentIndex),
+        body: PageTransitionSwitcher(
+          reverse: model.reverse,
+          duration: const Duration(milliseconds: 250),
+          transitionBuilder: (child, animation, secondaryAnimation) => FadeThroughTransition(
+            child: child,
+            animation: animation,
+            fillColor: appTheme(context).backgroundColor,
+            secondaryAnimation: secondaryAnimation,
+          ),
+          child: model.getViewForIndex(model.currentIndex),
+        ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           backgroundColor: appTheme(context).backgroundColor,
