@@ -15,21 +15,25 @@ class HomeView extends StatelessWidget {
       builder: (context, model, child) {
         return Scaffold(
           backgroundColor: appTheme(context).backgroundColor,
-          appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(54),
-            child: AppBar(
-              backgroundColor: appTheme(context).backgroundColor,
-              title: const Padding(
-                padding: EdgeInsets.only(top: 8),
-                child: Text('Word Checker'),
-              ),
-              actions: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
+          appBar: CustomAppbar(
+            title: 'Word Checker',
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Visibility(
+                  visible: model.isUndoing == false,
+                  replacement: TextButton(
+                    onPressed: model.undo,
+                    child: Text('Undo (${model.undoTimeLeft})'),
+                    style: TextButton.styleFrom(
+                      primary: Colors.red,
+                      shape: const StadiumBorder(),
+                    ),
+                  ),
                   child: Visibility(
                     visible: model.wordCount != 0,
                     child: TextButton(
-                      onPressed: () => model.undo(),
+                      onPressed: model.clearAndStartTimer,
                       child: const Text('Clear'),
                       style: TextButton.styleFrom(
                         primary: Colors.red,
@@ -38,17 +42,8 @@ class HomeView extends StatelessWidget {
                     ),
                   ),
                 ),
-              ],
-              bottom: const PreferredSize(
-                preferredSize: Size.fromHeight(1),
-                child: Divider(
-                  thickness: 1.3,
-                  height: 1,
-                ),
               ),
-              elevation: 0,
-              centerTitle: true,
-            ),
+            ],
           ),
           body: Stack(
             alignment: Alignment.center,

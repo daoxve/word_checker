@@ -1,7 +1,6 @@
 import 'exports.dart';
 
-import 'package:word_checker/ui/widgets/setup_dialog_ui.dart';
-import 'package:word_checker/ui/widgets/setup_snackbar_ui.dart';
+// import 'package:word_checker/ui/widgets/setup_dialog_ui.dart';
 
 import 'package:word_checker/styles/theme_setup.dart' as _themes;
 
@@ -9,8 +8,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   setupLocator();
-  setupDialogUI();
-  setupSnackbarUI();
+  // setupDialogUI();
   await ThemeManager.initialise();
 
   runApp(const App());

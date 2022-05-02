@@ -1,14 +1,19 @@
+import 'dart:async';
+
 import 'package:word_checker/exports.dart';
 
 class HomeViewModel extends BaseViewModel {
   final log = getLogger('MainViewModel');
 
-  final _snackbarService = locator<SnackbarService>();
   final _navigationService = locator<NavigationService>();
   final textEdController = TextEditingController();
 
   int wordCount = 0;
   int sentenceCount = 0;
+  bool isUndoing = false;
+  int undoTimeLeft = 5;
+  String? temp;
+  TextSelection? _selection;
 
   // count words
   void onTextFieldChange(String str) {
@@ -19,27 +24,43 @@ class HomeViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void undo() async {
+  // clear selection and start undo timer
+  void clearAndStartTimer() {
     if (textEdController.text.isEmpty) return;
-    String? temp = textEdController.text;
+    _selection = textEdController.selection; // save cursor location
+    temp = textEdController.text;
     textEdController.clear();
     wordCount = 0;
     sentenceCount = 0;
+    isUndoing = true;
     notifyListeners();
 
-    await _snackbarService.showCustomSnackBar(
-      message: kOnDeleteText,
-      mainButtonTitle: kUndo,
-      onMainButtonTapped: () {
-        textEdController.text = temp!;
-        onTextFieldChange(textEdController.text);
-        temp = null;
-        _navigationService.back(); // Dismiss the snackbar
-        notifyListeners();
+    Timer.periodic(
+      const Duration(seconds: 1),
+      (t) {
+        if (undoTimeLeft > 0) {
+          undoTimeLeft--;
+          notifyListeners();
+        } else {
+          isUndoing = false;
+          undoTimeLeft = 5;
+          notifyListeners();
+          t.cancel();
+        }
       },
-      onTap: () {},
-      variant: SnackbarType.undo,
-      duration: const Duration(seconds: 2),
     );
+  }
+
+  void undo() {
+    if (temp == null) return;
+    isUndoing = false;
+    undoTimeLeft = 0;
+    textEdController.text = temp!;
+    notifyListeners();
+
+    onTextFieldChange(textEdController.text);
+    textEdController.selection = _selection!; // restore last cursor position
+    temp = null; // reset temp
+    notifyListeners();
   }
 }

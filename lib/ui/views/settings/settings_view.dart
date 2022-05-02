@@ -13,27 +13,10 @@ class SettingsView extends StatelessWidget {
       viewModelBuilder: () => SettingsViewModel(),
       builder: (context, model, child) => Scaffold(
         backgroundColor: appTheme(context).backgroundColor,
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(54),
-          child: AppBar(
-            backgroundColor: appTheme(context).backgroundColor,
-            title: const Padding(
-              padding: EdgeInsets.only(top: 8),
-              child: Text('Settings'),
-            ),
-            bottom: const PreferredSize(
-              preferredSize: Size.fromHeight(1),
-              child: Divider(
-                thickness: 1.3,
-                height: 1,
-              ),
-            ),
-            elevation: 0,
-            centerTitle: true,
-          ),
-        ),
+        appBar: const CustomAppbar(title: 'Settings'),
         body: SingleChildScrollView(
           padding: const EdgeInsets.only(top: 4),
+          physics: const BouncingScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -41,7 +24,7 @@ class SettingsView extends StatelessWidget {
                 heading: 'Look & feel',
                 buttons: [
                   TextButton.icon(
-                    onPressed: model.changeThemeFunc,
+                    onPressed: () => model.navigateTo(Routes.changeThemesView),
                     icon: const Icon(Icons.palette),
                     label: Text(
                       'Change Theme',

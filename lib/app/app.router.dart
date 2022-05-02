@@ -10,15 +10,18 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 import '../exports.dart';
+import '../ui/views/change_themes/change_themes_view.dart';
 
 class Routes {
   static const String mainView = '/';
   static const String homeView = '/home-view';
   static const String settingsView = '/settings-view';
+  static const String changeThemesView = '/change-themes-view';
   static const all = <String>{
     mainView,
     homeView,
     settingsView,
+    changeThemesView,
   };
 }
 
@@ -29,6 +32,7 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.mainView, page: MainView),
     RouteDef(Routes.homeView, page: HomeView),
     RouteDef(Routes.settingsView, page: SettingsView),
+    RouteDef(Routes.changeThemesView, page: ChangeThemesView),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -51,6 +55,13 @@ class StackedRouter extends RouterBase {
       return PageRouteBuilder<dynamic>(
         pageBuilder: (context, animation, secondaryAnimation) =>
             const SettingsView(),
+        settings: data,
+      );
+    },
+    ChangeThemesView: (data) {
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            const ChangeThemesView(),
         settings: data,
       );
     },

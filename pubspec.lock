@@ -209,6 +209,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_hooks:
+    dependency: "direct main"
+    description:
+      name: flutter_hooks
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.18.3"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -539,6 +546,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  smooth_page_indicator:
+    dependency: "direct main"
+    description:
+      name: smooth_page_indicator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0+2"
   source_gen:
     dependency: transitive
     description:
@@ -577,12 +591,10 @@ packages:
   stacked_services:
     dependency: "direct main"
     description:
-      path: "packages/stacked_services"
-      ref: HEAD
-      resolved-ref: e6ccaadc997e35b5a46eb5425463c858b61323af
-      url: "https://github.com/thecokerdavid/stacked.git"
-    source: git
-    version: "0.8.19"
+      name: stacked_services
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.8.18"
   stacked_themes:
     dependency: "direct main"
     description:

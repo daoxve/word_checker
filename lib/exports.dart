@@ -30,3 +30,6 @@ export 'package:word_checker/core/utils/gap.dart';
 export 'package:word_checker/ui/views/home/home_view.dart';
 export 'package:word_checker/ui/views/main/main_view.dart';
 export 'package:word_checker/ui/views/settings/settings_view.dart';
+
+// Commons
+export 'package:word_checker/ui/widgets/common/custom_appbar.dart';
