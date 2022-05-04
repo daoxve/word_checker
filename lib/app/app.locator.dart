@@ -9,6 +9,7 @@
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 
+import '../core/services/app_theme_service.dart';
 import '../exports.dart';
 import '../ui/views/home/home_viewmodel.dart';
 
@@ -24,5 +25,6 @@ void setupLocator({String? environment, EnvironmentFilter? environmentFilter}) {
   locator.registerLazySingleton(() => DialogService());
   locator.registerLazySingleton(() => SnackbarService());
   locator.registerLazySingleton(() => BottomSheetService());
+  locator.registerLazySingleton(() => AppThemeService());
   locator.registerSingleton(HomeViewModel());
 }

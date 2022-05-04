@@ -1,10 +1,13 @@
 import 'package:word_checker/exports.dart';
 
+@Deprecated('Use the appThemes variable from AppThemeService')
+///A static reference to appwide themes
 List<ThemeData> getThemes() {
-  return [
+  final _themes = [
     // Light
     ThemeData(
       backgroundColor: kcWhite,
+      canvasColor: kcWhite,
       colorScheme: ColorScheme.fromSwatch().copyWith(
         secondary: kcBlue,
         onSecondary: kcBlack,
@@ -15,6 +18,7 @@ List<ThemeData> getThemes() {
       ),
       iconTheme: const IconThemeData(color: kcBlack),
       appBarTheme: const AppBarTheme(
+        backgroundColor: kcWhite,
         titleTextStyle: TextStyle(
           fontSize: 18.0,
           fontWeight: FontWeight.w500,
@@ -36,6 +40,7 @@ List<ThemeData> getThemes() {
     // Dim
     ThemeData(
       backgroundColor: kcDark,
+      canvasColor: kcDark,
       colorScheme: ColorScheme.fromSwatch().copyWith(
         secondary: kcBlue,
         onSecondary: kcWhite,
@@ -53,6 +58,7 @@ List<ThemeData> getThemes() {
         subtitle2: kSubtitle2.copyWith(color: kcWhite54),
       ),
       appBarTheme: const AppBarTheme(
+        backgroundColor: kcDark,
         titleTextStyle: TextStyle(
           fontSize: 18.0,
           fontWeight: FontWeight.w500,
@@ -67,6 +73,7 @@ List<ThemeData> getThemes() {
     // Lights out
     ThemeData(
       backgroundColor: kcBlack,
+      canvasColor: kcBlack,
       colorScheme: ColorScheme.fromSwatch().copyWith(
         secondary: kcBlue,
         onSecondary: kcWhite,
@@ -84,6 +91,7 @@ List<ThemeData> getThemes() {
         subtitle2: kSubtitle2.copyWith(color: kcWhite54),
       ),
       appBarTheme: const AppBarTheme(
+        backgroundColor: kcBlack,
         titleTextStyle: TextStyle(
           fontSize: 18.0,
           fontWeight: FontWeight.w500,
@@ -95,4 +103,6 @@ List<ThemeData> getThemes() {
       splashColor: Colors.transparent,
     ),
   ];
+
+  return _themes;
 }

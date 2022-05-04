@@ -4,6 +4,10 @@ class SettingsViewModel extends BaseViewModel {
   final _dialogService = locator<DialogService>();
   final _navigationService = locator<NavigationService>();
 
+  bool showPreviousTextOnStart = true;
+  bool enableHaptics = true;
+  bool snapBetweenThemes = false;
+
   void navigateBack() {
     _navigationService.back();
   }
@@ -12,8 +16,6 @@ class SettingsViewModel extends BaseViewModel {
     _navigationService.navigateTo(route);
   }
 
-  bool displayPreviousTextOnStart = true;
-
   void changeThemeFunc() async {
     await _dialogService.showCustomDialog(
       variant: DialogType.theme,
@@ -21,8 +23,18 @@ class SettingsViewModel extends BaseViewModel {
     );
   }
 
-  void dispPrevTextOnStartToggle(bool newVal) {
-    displayPreviousTextOnStart = !displayPreviousTextOnStart;
+  void toggleShowPrevText(bool val) {
+    showPreviousTextOnStart = !showPreviousTextOnStart;
+    notifyListeners();
+  }
+
+  void toggleHaptics(val) {
+    enableHaptics = !enableHaptics;
+    notifyListeners();
+  }
+
+  void toggleSnapThemes(val) {
+    snapBetweenThemes = !snapBetweenThemes;
     notifyListeners();
   }
 }

@@ -20,9 +20,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ThemeBuilder(
-      statusBarColorBuilder: (theme) => theme!.colorScheme.secondaryContainer,
-      navigationBarColorBuilder: (theme) => theme!.backgroundColor,
-      themes: _themes.getThemes(),
+      statusBarColorBuilder: (theme) => theme!.colorScheme.primaryContainer,
+      navigationBarColorBuilder: (theme) => theme!.canvasColor,
+      themes: locator<AppThemeService>().appThemes,
       builder: (context, regularTheme, darkTheme, themeMode) => MaterialApp(
         title: 'Word Checker',
         theme: regularTheme,

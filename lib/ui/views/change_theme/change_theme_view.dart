@@ -1,13 +1,10 @@
 import 'package:word_checker/exports.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:word_checker/styles/theme_setup.dart';
-import 'package:word_checker/ui/widgets/change_themes/theme_detail_card.dart';
+import 'package:word_checker/ui/widgets/change_theme/theme_detail_card.dart';
 
-import 'change_themes_viewmodel.dart';
+import 'change_theme_viewmodel.dart';
 
-class ChangeThemesView extends HookWidget {
-  const ChangeThemesView({Key? key}) : super(key: key);
+class ChangeThemeView extends HookWidget {
+  const ChangeThemeView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,23 +12,25 @@ class ChangeThemesView extends HookWidget {
       initialPage: getThemeManager(context).selectedThemeIndex ?? 0,
     );
 
-    return ViewModelBuilder<ChangeThemesViewModel>.reactive(
+    return ViewModelBuilder<ChangeThemeViewModel>.reactive(
       onModelReady: (model) {
         model.generateThemesList();
         model.setGroupVal(context);
       },
-      viewModelBuilder: () => ChangeThemesViewModel(),
+      viewModelBuilder: () => ChangeThemeViewModel(),
       builder: (context, model, child) {
         return Scaffold(
           backgroundColor: appTheme(context).backgroundColor,
           appBar: CustomAppbar(
             title: 'Change Theme',
-            onTap: model.navigateBack,
             actions: [
               IconButton(
                 padding: const EdgeInsets.only(top: 10.0),
-                onPressed: () {},
-                icon: const Icon(Icons.add_circle_outline,size: 22,),
+                onPressed: () => model.navigateTo(Routes.addThemeView),
+                icon: const Icon(
+                  Icons.add_circle_outline,
+                  size: 22,
+                ),
               )
             ],
           ),
@@ -46,15 +45,15 @@ class ChangeThemesView extends HookWidget {
                       height: 600,
                       child: PageView.builder(
                         controller: _pageController,
-                        itemCount: getThemes().length,
-                        pageSnapping: false,
+                        itemCount: model.appThemes.length,
+                        // pageSnapping: false,
                         physics: const BouncingScrollPhysics(),
                         onPageChanged: (i) {
                           model.toggleRadio(i);
                           getThemeManager(context).selectThemeAtIndex(i);
                         },
                         itemBuilder: (ctx, i) => ThemeDetailCard(
-                          innerContainerColor: getThemes()[i].backgroundColor,
+                          innerContainerColor: model.appThemes[i].backgroundColor,
                           themeName: model.themesList[i].name,
                           themeDesc: model.themesList[i].desc,
                           radioValue: i,
@@ -73,7 +72,7 @@ class ChangeThemesView extends HookWidget {
               // Dot button
               SmoothPageIndicator(
                 controller: _pageController,
-                count: getThemes().length,
+                count: model.appThemes.length,
                 effect: SlideEffect(
                   activeDotColor: appTheme(context).colorScheme.secondary,
                   dotColor: appTheme(context).colorScheme.secondary.withOpacity(0.2),

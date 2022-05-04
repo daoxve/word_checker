@@ -6,17 +6,18 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
     this.actions,
     required this.title,
     this.centerTitle,
-    this.onTap,
+    this.onNavigateBack,
   }) : super(key: key);
 
   final List<Widget>? actions;
   final String title;
   final bool? centerTitle;
-  final void Function()? onTap;
+  final void Function()? onNavigateBack;
 
   @override
   Widget build(BuildContext context) {
-    bool canPop = ModalRoute.of(context)?.canPop ?? false;
+    final _canPop = ModalRoute.of(context)?.canPop ?? false;
+    final _navigationService = locator<NavigationService>();
 
     return AppBar(
       backgroundColor: appTheme(context).backgroundColor,
@@ -26,9 +27,9 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: actions,
       iconTheme: appTheme(context).iconTheme,
-      leading: canPop
+      leading: _canPop
           ? InkResponse(
-              onTap: onTap,
+              onTap: onNavigateBack ?? _navigationService.back,
               radius: 24,
               splashColor: appTheme(context).colorScheme.secondary.withOpacity(0.3),
               child: const Padding(

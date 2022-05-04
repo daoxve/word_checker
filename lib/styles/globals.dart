@@ -1,9 +1,9 @@
 import 'package:word_checker/exports.dart';
 
-ThemeData appTheme(context) {
+ThemeData appTheme(BuildContext context) {
   return Theme.of(context);
 }
 
-TextTheme appTextTheme(context) {
+TextTheme appTextTheme(BuildContext context) {
   return Theme.of(context).textTheme;
 }

@@ -24,7 +24,7 @@ class SettingsView extends StatelessWidget {
                 heading: 'Look & feel',
                 buttons: [
                   TextButton.icon(
-                    onPressed: () => model.navigateTo(Routes.changeThemesView),
+                    onPressed: () => model.navigateTo(Routes.changeThemeView),
                     icon: const Icon(Icons.palette),
                     label: Text(
                       'Change Theme',
@@ -35,7 +35,7 @@ class SettingsView extends StatelessWidget {
                     onPressed: () {},
                     icon: const Icon(Icons.format_size),
                     label: Text(
-                      'Adjust Text Font',
+                      'Adjust Textfield Font',
                       style: appTextTheme(context).bodyText2,
                     ),
                   ),
@@ -43,7 +43,7 @@ class SettingsView extends StatelessWidget {
                     onPressed: () {},
                     icon: const Icon(Icons.abc),
                     label: Text(
-                      'Textfield Behavior',
+                      'Textfield Scroll Behavior',
                       style: appTextTheme(context).bodyText2,
                     ),
                   ),
@@ -54,9 +54,29 @@ class SettingsView extends StatelessWidget {
                 buttons: [
                   SwitchTile(
                     icon: Icons.save,
-                    label: 'Display previous text on start',
-                    switchValue: model.displayPreviousTextOnStart,
-                    onSwitchChanged: model.dispPrevTextOnStartToggle,
+                    label: 'Show last entered text on restart',
+                    switchValue: model.showPreviousTextOnStart,
+                    onSwitchChanged: model.toggleShowPrevText,
+                  ),
+                  TextButton.icon(
+                    onPressed: () {},
+                    icon: const Icon(Icons.timer),
+                    label: Text(
+                      'Change Undo Countdown Time',
+                      style: appTextTheme(context).bodyText2,
+                    ),
+                  ),
+                  SwitchTile(
+                    icon: Icons.vibration,
+                    label: 'Enable haptic feedback',
+                    switchValue: model.enableHaptics,
+                    onSwitchChanged: model.toggleHaptics,
+                  ),
+                  SwitchTile(
+                    icon: Icons.airline_seat_legroom_extra_outlined,
+                    label: 'Snap between themes',
+                    switchValue: model.snapBetweenThemes,
+                    onSwitchChanged: model.toggleSnapThemes,
                   ),
                 ],
               ),
@@ -95,16 +115,50 @@ class SettingsView extends StatelessWidget {
                       style: appTextTheme(context).bodyText2,
                     ),
                   ),
+                ],
+              ),
+              SettingCard(
+                heading: 'Danger',
+                headingIcon: Icons.help,
+                subHeading: 'Some of these settings have irreversible effects',
+                isErrorCard: true,
+                headingColor: kcError,
+                buttons: [
                   TextButton.icon(
                     onPressed: () {},
-                    icon: const Icon(Icons.help),
+                    icon: const Icon(
+                      Icons.cleaning_services_outlined,
+                    ),
                     label: Text(
-                      'Version',
+                      'Clear app cache',
                       style: appTextTheme(context).bodyText2,
                     ),
                   ),
+                  TextButton.icon(
+                    onPressed: () {},
+                    icon: const Icon(Icons.settings_backup_restore),
+                    label: Text(
+                      'Restore app defaults',
+                      style: appTextTheme(context).bodyText2,
+                    ),
+                  ),
+                  // TextButton.icon(
+                  //   onPressed: () {},
+                  //   icon: const Icon(Icons.gamepad_sharp),
+                  //   label: Text(
+                  //     'Switch custom renderer',
+                  //     style: appTextTheme(context).bodyText2,
+                  //   ),
+                  // ),
                 ],
               ),
+              Align(
+                child: Text(
+                  'App Version - 1.0.0',
+                  style: appTextTheme(context).bodySmall,
+                ),
+              ),
+              Gap.mediumH,
             ],
           ),
         ),
