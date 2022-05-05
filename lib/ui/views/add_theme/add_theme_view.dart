@@ -1,4 +1,4 @@
-import 'package:word_checker/exports.dart';
+import 'package:word_checker/core/exports/exports.dart';
 import 'package:word_checker/ui/widgets/add_theme/custom_textfield.dart';
 
 import 'add_theme_viewmodel.dart';

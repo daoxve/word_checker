@@ -1,7 +1,5 @@
-import 'dart:ui';
-
-import 'package:word_checker/exports.dart';
-import 'package:word_checker/ui/widgets/info_tip_button.dart';
+import 'package:word_checker/core/exports/exports.dart';
+import 'package:word_checker/ui/widgets/common/info_tip_button.dart';
 
 /// A card with a dynamically adjusting number of buttons
 class SettingCard extends StatelessWidget {
@@ -38,6 +36,7 @@ class SettingCard extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Visibility(
                 visible: heading != null,

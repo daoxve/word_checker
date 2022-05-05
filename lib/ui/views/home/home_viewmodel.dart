@@ -1,4 +1,4 @@
-import 'package:word_checker/exports.dart';
+import 'package:word_checker/core/exports/exports.dart';
 
 class HomeViewModel extends BaseViewModel {
   final log = getLogger('MainViewModel');

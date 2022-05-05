@@ -1,4 +1,4 @@
-import 'package:word_checker/exports.dart';
+import 'package:word_checker/core/exports/exports.dart';
 import 'package:word_checker/ui/widgets/main/bottom_card.dart';
 
 import 'home_viewmodel.dart';

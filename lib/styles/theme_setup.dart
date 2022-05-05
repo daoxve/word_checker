@@ -1,4 +1,4 @@
-import 'package:word_checker/exports.dart';
+import 'package:word_checker/core/exports/exports.dart';
 
 @Deprecated('Use the appThemes variable from AppThemeService')
 ///A static reference to appwide themes

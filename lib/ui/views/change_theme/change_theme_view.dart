@@ -1,4 +1,4 @@
-import 'package:word_checker/exports.dart';
+import 'package:word_checker/core/exports/exports.dart';
 import 'package:word_checker/ui/widgets/change_theme/theme_detail_card.dart';
 
 import 'change_theme_viewmodel.dart';

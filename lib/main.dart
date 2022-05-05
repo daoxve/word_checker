@@ -1,6 +1,6 @@
-import 'exports.dart';
+import 'core/exports/exports.dart';
 
-// import 'package:word_checker/ui/widgets/setup_dialog_ui.dart';
+// import 'package:word_checker/ui/widgets/setup_dialog_ui.dart'; // TODO: Delete dialog code
 
 import 'package:word_checker/styles/theme_setup.dart' as _themes;
 

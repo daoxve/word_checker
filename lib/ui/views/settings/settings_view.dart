@@ -1,4 +1,4 @@
-import 'package:word_checker/exports.dart';
+import 'package:word_checker/core/exports/exports.dart';
 import 'package:word_checker/ui/widgets/settings/setting_card.dart';
 import 'package:word_checker/ui/widgets/settings/switch_tile.dart';
 
@@ -32,7 +32,7 @@ class SettingsView extends StatelessWidget {
                     ),
                   ),
                   TextButton.icon(
-                    onPressed: () {},
+                    onPressed: () => model.navigateTo(Routes.adjustTextfieldFontView),
                     icon: const Icon(Icons.format_size),
                     label: Text(
                       'Adjust Textfield Font',
@@ -41,9 +41,17 @@ class SettingsView extends StatelessWidget {
                   ),
                   TextButton.icon(
                     onPressed: () {},
-                    icon: const Icon(Icons.abc),
+                    icon: const Icon(Icons.drag_handle),
                     label: Text(
                       'Textfield Scroll Behavior',
+                      style: appTextTheme(context).bodyText2,
+                    ),
+                  ),
+                  TextButton.icon(
+                    onPressed: () {},
+                    icon: const Icon(Icons.line_style),
+                    label: Text(
+                      'Stats Box Behaviour',
                       style: appTextTheme(context).bodyText2,
                     ),
                   ),
@@ -73,7 +81,7 @@ class SettingsView extends StatelessWidget {
                     onSwitchChanged: model.toggleHaptics,
                   ),
                   SwitchTile(
-                    icon: Icons.airline_seat_legroom_extra_outlined,
+                    icon: Icons.donut_large,
                     label: 'Snap between themes',
                     switchValue: model.snapBetweenThemes,
                     onSwitchChanged: model.toggleSnapThemes,
@@ -120,7 +128,7 @@ class SettingsView extends StatelessWidget {
               SettingCard(
                 heading: 'Danger',
                 headingIcon: Icons.help,
-                subHeading: 'Some of these settings have irreversible effects',
+                subHeading: 'Most settings here are irreversible',
                 isErrorCard: true,
                 headingColor: kcError,
                 buttons: [

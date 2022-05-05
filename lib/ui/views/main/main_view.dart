@@ -1,5 +1,5 @@
 import 'package:animations/animations.dart';
-import 'package:word_checker/exports.dart';
+import 'package:word_checker/core/exports/exports.dart';
 
 import 'main_viewmodel.dart';
 

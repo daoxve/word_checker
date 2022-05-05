@@ -1,9 +1,11 @@
-import 'package:word_checker/exports.dart';
+import 'package:word_checker/core/exports/exports.dart';
 
 /// A helper class that helps for cleaner looking whitespaces
 class Gap {
   Gap._();
 
+  static const veryTinyW = SizedBox(width: 3.0);
+  static const veryTinyH = SizedBox(height: 3.0);
   static const tinyW = SizedBox(width: 5.0);
   static const tinyH = SizedBox(height: 5.0);
   static const smallW = SizedBox(width: 10.0);

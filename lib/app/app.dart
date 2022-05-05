@@ -1,10 +1,4 @@
-import 'package:word_checker/exports.dart';
-
-import 'package:word_checker/core/services/app_theme_service.dart';
-
-import 'package:word_checker/ui/views/add_theme/add_theme_view.dart';
-import 'package:word_checker/ui/views/home/home_viewmodel.dart';
-import 'package:word_checker/ui/views/change_theme/change_theme_view.dart';
+import '../core/exports/exports.dart';
 
 @StackedApp(
   routes: [
@@ -13,6 +7,7 @@ import 'package:word_checker/ui/views/change_theme/change_theme_view.dart';
     CupertinoRoute(page: SettingsView),
     CupertinoRoute(page: ChangeThemeView),
     CupertinoRoute(page: AddThemeView),
+    CupertinoRoute(page: AdjustTextfieldFontView),
   ],
   dependencies: [
     LazySingleton(classType: NavigationService),

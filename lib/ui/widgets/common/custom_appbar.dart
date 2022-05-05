@@ -1,23 +1,23 @@
-import 'package:word_checker/exports.dart';
+import 'package:word_checker/core/exports/exports.dart';
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppbar({
     Key? key,
     this.actions,
     required this.title,
-    this.centerTitle,
+    this.centerTitle = true,
     this.onNavigateBack,
   }) : super(key: key);
 
   final List<Widget>? actions;
   final String title;
-  final bool? centerTitle;
+  final bool centerTitle;
   final void Function()? onNavigateBack;
 
   @override
   Widget build(BuildContext context) {
-    final _canPop = ModalRoute.of(context)?.canPop ?? false;
     final _navigationService = locator<NavigationService>();
+    final _canPop = ModalRoute.of(context)?.canPop ?? false;
 
     return AppBar(
       backgroundColor: appTheme(context).backgroundColor,
@@ -46,7 +46,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       elevation: 0,
-      centerTitle: centerTitle ?? true,
+      centerTitle: centerTitle,
     );
   }
 

@@ -1,4 +1,4 @@
-import 'package:word_checker/exports.dart';
+import 'package:word_checker/core/exports/exports.dart';
 
 class InfoTipButton extends StatelessWidget {
   const InfoTipButton({
@@ -16,6 +16,8 @@ class InfoTipButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Tooltip(
       message: message ?? '',
+      padding: const EdgeInsets.only(top: 12, left: 10, right: 25),
+      margin: const EdgeInsets.only(top: 12),
       triggerMode: TooltipTriggerMode.tap,
       preferBelow: false,
       decoration: ShapeDecoration(
@@ -34,7 +36,15 @@ class InfoTipButton extends StatelessWidget {
           color: iconColor,
           size: 21,
         ),
-        child: Icon(icon),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 4.0),
+          child: Column(
+            children: [
+              Gap.veryTinyH,
+              Icon(icon),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -61,12 +71,12 @@ class _TooltipShapeBorder extends ShapeBorder {
 
   @override
   Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
-    rect = Rect.fromPoints(rect.topLeft, rect.bottomRight - Offset(0, arrowHeight));
+    rect = Rect.fromPoints(rect.topLeft, rect.bottomRight - const Offset(18, 1));
     double x = arrowWidth, y = arrowHeight, r = 1 - arrowArc;
     return Path()
       ..addRRect(RRect.fromRectAndRadius(rect, Radius.circular(radius)))
       ..moveTo(rect.bottomRight.dx + x / 180, rect.bottomRight.dy - 3)
-      ..relativeLineTo(-x / 2 * r, y * r)
+      ..relativeLineTo(-x / 16 * r, y * r)
       ..relativeQuadraticBezierTo(-x / 2 * (1 - r), y * (1 - r), -x * (1 - r), 0)
       ..relativeLineTo(-x / 2 * r, -y * r);
   }

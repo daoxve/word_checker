@@ -1,4 +1,4 @@
-import 'package:word_checker/exports.dart';
+import 'package:word_checker/core/exports/exports.dart';
 
 ThemeData appTheme(BuildContext context) {
   return Theme.of(context);
