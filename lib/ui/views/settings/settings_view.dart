@@ -40,7 +40,65 @@ class SettingsView extends StatelessWidget {
                     ),
                   ),
                   TextButton.icon(
-                    onPressed: () {},
+                    onPressed: () => showRadioBottomSheet(
+                      context,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          RadioListTile(
+                            value: model.behaviour1,
+                            groupValue: model.textFieldScrollBehaviourGroupVal,
+                            controlAffinity: ListTileControlAffinity.trailing,
+                            onChanged: model.onBehaviourOneChanged,
+                            activeColor: appTheme(context).colorScheme.secondary,
+                            title: Text(
+                              'Bouncing scroll',
+                              style: appTextTheme(context).bodyText1?.copyWith(
+                                    color:
+                                        appTheme(context).iconTheme.color!.computeLuminance() >
+                                                0.5
+                                            ? appTheme(context).iconTheme.color
+                                            : Colors.black,
+                                  ),
+                            ),
+                          ),
+                          RadioListTile(
+                            value: model.behaviour2,
+                            groupValue: model.textFieldScrollBehaviourGroupVal,
+                            controlAffinity: ListTileControlAffinity.trailing,
+                            onChanged: model.onBehaviourTwoChanged,
+                            activeColor: appTheme(context).colorScheme.secondary,
+                            title: Text(
+                              'Clamping scroll',
+                              style: appTextTheme(context).bodyText1?.copyWith(
+                                    color:
+                                        appTheme(context).iconTheme.color!.computeLuminance() >
+                                                0.5
+                                            ? appTheme(context).iconTheme.color
+                                            : Colors.black,
+                                  ),
+                            ),
+                          ),
+                          RadioListTile(
+                            value: model.behaviour3,
+                            groupValue: model.textFieldScrollBehaviourGroupVal,
+                            controlAffinity: ListTileControlAffinity.trailing,
+                            onChanged: model.onBehaviourThreeChanged,
+                            activeColor: appTheme(context).colorScheme.secondary,
+                            title: Text(
+                              'Never scroll',
+                              style: appTextTheme(context).bodyText1?.copyWith(
+                                    color:
+                                        appTheme(context).iconTheme.color!.computeLuminance() >
+                                                0.5
+                                            ? appTheme(context).iconTheme.color
+                                            : Colors.black,
+                                  ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                     icon: const Icon(Icons.drag_handle),
                     label: Text(
                       'Textfield Scroll Behavior',

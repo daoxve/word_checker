@@ -8,6 +8,11 @@ class SettingsViewModel extends BaseViewModel {
   bool enableHaptics = true;
   bool snapBetweenThemes = false;
 
+  int behaviour1 = 0;
+  int behaviour2 = 1;
+  int behaviour3 = 2;
+  int textFieldScrollBehaviourGroupVal = 0;
+
   void navigateBack() {
     _navigationService.back();
   }
@@ -35,6 +40,21 @@ class SettingsViewModel extends BaseViewModel {
 
   void toggleSnapThemes(val) {
     snapBetweenThemes = !snapBetweenThemes;
+    notifyListeners();
+  }
+
+  void onBehaviourOneChanged(int? val) {
+    if (val != null) textFieldScrollBehaviourGroupVal = val;
+    notifyListeners();
+  }
+
+  void onBehaviourTwoChanged(int? val) {
+    if (val != null) textFieldScrollBehaviourGroupVal = val;
+    notifyListeners();
+  }
+
+  void onBehaviourThreeChanged(int? val) {
+    if (val != null) textFieldScrollBehaviourGroupVal = val;
     notifyListeners();
   }
 }
