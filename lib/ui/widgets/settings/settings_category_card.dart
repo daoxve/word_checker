@@ -1,9 +1,8 @@
 import 'package:word_checker/core/exports/exports.dart';
-import 'package:word_checker/ui/widgets/common/info_tip_button.dart';
 
 /// A card with a dynamically adjusting number of buttons
-class SettingCard extends StatelessWidget {
-  const SettingCard({
+class SettingsCategoryCard extends StatelessWidget {
+  const SettingsCategoryCard({
     Key? key,
     this.heading,
     this.subHeading,
@@ -13,7 +12,7 @@ class SettingCard extends StatelessWidget {
     required this.buttons,
   }) : super(key: key);
 
-  /// Title of this [SettingCard].
+  /// Title of this [SettingsCategoryCard].
   /// Can optionally be null
   final String? heading;
   final String? subHeading;
@@ -22,7 +21,7 @@ class SettingCard extends StatelessWidget {
 
   final Color? headingColor;
 
-  /// Body of this [SettingCard]
+  /// Body of this [SettingsCategoryCard]
   final List<Widget> buttons;
 
   @override

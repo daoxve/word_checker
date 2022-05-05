@@ -1,5 +1,5 @@
 import 'package:word_checker/core/exports/exports.dart';
-import 'package:word_checker/ui/widgets/settings/setting_card.dart';
+import 'package:word_checker/ui/widgets/settings/settings_category_card.dart';
 import 'package:word_checker/ui/widgets/settings/switch_tile.dart';
 
 import 'settings_viewmodel.dart';
@@ -20,7 +20,7 @@ class SettingsView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SettingCard(
+              SettingsCategoryCard(
                 heading: 'Look & feel',
                 buttons: [
                   TextButton.icon(
@@ -57,7 +57,7 @@ class SettingsView extends StatelessWidget {
                   ),
                 ],
               ),
-              SettingCard(
+              SettingsCategoryCard(
                 heading: 'Basic Settings',
                 buttons: [
                   SwitchTile(
@@ -88,7 +88,7 @@ class SettingsView extends StatelessWidget {
                   ),
                 ],
               ),
-              SettingCard(
+              SettingsCategoryCard(
                 heading: 'About',
                 buttons: [
                   TextButton.icon(
@@ -125,7 +125,7 @@ class SettingsView extends StatelessWidget {
                   ),
                 ],
               ),
-              SettingCard(
+              SettingsCategoryCard(
                 heading: 'Danger',
                 headingIcon: Icons.help,
                 subHeading: 'Most settings here are irreversible',
