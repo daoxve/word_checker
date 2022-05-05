@@ -10,6 +10,9 @@ class CustomLabelledSlider extends StatelessWidget {
     this.intervals,
     this.intervalBreaks,
     this.onSliderChanged,
+    this.isPopup = false,
+    this.padding,
+    this.headingPadding,
   }) : super(key: key);
 
   final String heading;
@@ -19,16 +22,20 @@ class CustomLabelledSlider extends StatelessWidget {
   final double? intervals;
   final double? intervalBreaks;
   final void Function(dynamic)? onSliderChanged;
+  final bool isPopup;
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? headingPadding;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),
+      padding: padding ?? const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),
       child: Column(
+        mainAxisSize: isPopup ? MainAxisSize.min : MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 16),
+            padding: headingPadding ?? const EdgeInsets.only(top: 16),
             child: Text(
               heading,
               style: appTextTheme(context).headline2,

@@ -1,4 +1,5 @@
 import 'package:word_checker/core/exports/exports.dart';
+import 'package:word_checker/ui/widgets/adjust_textfield_font/custom_labelled_slider.dart';
 import 'package:word_checker/ui/widgets/settings/settings_category_card.dart';
 import 'package:word_checker/ui/widgets/settings/switch_tile.dart';
 
@@ -42,61 +43,47 @@ class SettingsView extends StatelessWidget {
                   TextButton.icon(
                     onPressed: () => showRadioBottomSheet(
                       context,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          RadioListTile(
-                            value: model.behaviour1,
-                            groupValue: model.textFieldScrollBehaviourGroupVal,
-                            controlAffinity: ListTileControlAffinity.trailing,
-                            onChanged: model.onBehaviourOneChanged,
-                            activeColor: appTheme(context).colorScheme.secondary,
-                            title: Text(
-                              'Bouncing scroll',
-                              style: appTextTheme(context).bodyText1?.copyWith(
-                                    color:
-                                        appTheme(context).iconTheme.color!.computeLuminance() >
-                                                0.5
-                                            ? appTheme(context).iconTheme.color
-                                            : Colors.black,
-                                  ),
+                      child: StatefulBuilder(
+                        builder: (context, updateState) {
+                          return ListView.separated(
+                            itemCount: textfieldScrollBehaviours.length,
+                            shrinkWrap: true,
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                            separatorBuilder: (_, __) => SizedBox(
+                              height: 1,
+                              child: Divider(
+                                height: 1,
+                                thickness: 1,
+                                color: appTheme(context).colorScheme.background,
+                              ),
                             ),
-                          ),
-                          RadioListTile(
-                            value: model.behaviour2,
-                            groupValue: model.textFieldScrollBehaviourGroupVal,
-                            controlAffinity: ListTileControlAffinity.trailing,
-                            onChanged: model.onBehaviourTwoChanged,
-                            activeColor: appTheme(context).colorScheme.secondary,
-                            title: Text(
-                              'Clamping scroll',
-                              style: appTextTheme(context).bodyText1?.copyWith(
-                                    color:
-                                        appTheme(context).iconTheme.color!.computeLuminance() >
-                                                0.5
-                                            ? appTheme(context).iconTheme.color
-                                            : Colors.black,
+                            itemBuilder: (ctx, i) {
+                              return Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                child: RadioListTile<int>(
+                                  value: i,
+                                  groupValue: model.textFieldScrollBehaviourGroupVal,
+                                  onChanged: (val) =>
+                                      model.onTFScrollBehaviourRadioChanged(val, updateState),
+                                  controlAffinity: ListTileControlAffinity.trailing,
+                                  activeColor: appTheme(context).colorScheme.secondary,
+                                  title: Text(
+                                    textfieldScrollBehaviours[i],
+                                    style: appTextTheme(ctx).bodyText1?.copyWith(
+                                          color: appTheme(ctx)
+                                                      .iconTheme
+                                                      .color!
+                                                      .computeLuminance() >
+                                                  0.5
+                                              ? appTheme(context).iconTheme.color
+                                              : Colors.black,
+                                        ),
                                   ),
-                            ),
-                          ),
-                          RadioListTile(
-                            value: model.behaviour3,
-                            groupValue: model.textFieldScrollBehaviourGroupVal,
-                            controlAffinity: ListTileControlAffinity.trailing,
-                            onChanged: model.onBehaviourThreeChanged,
-                            activeColor: appTheme(context).colorScheme.secondary,
-                            title: Text(
-                              'Never scroll',
-                              style: appTextTheme(context).bodyText1?.copyWith(
-                                    color:
-                                        appTheme(context).iconTheme.color!.computeLuminance() >
-                                                0.5
-                                            ? appTheme(context).iconTheme.color
-                                            : Colors.black,
-                                  ),
-                            ),
-                          ),
-                        ],
+                                ),
+                              );
+                            },
+                          );
+                        },
                       ),
                     ),
                     icon: const Icon(Icons.drag_handle),
@@ -106,7 +93,51 @@ class SettingsView extends StatelessWidget {
                     ),
                   ),
                   TextButton.icon(
-                    onPressed: () {},
+                    onPressed: () => showRadioBottomSheet(
+                      context,
+                      child: StatefulBuilder(
+                        builder: (context, updateState) {
+                          return ListView.separated(
+                            itemCount: statsBoxBehaviours.length,
+                            shrinkWrap: true,
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                            separatorBuilder: (_, __) => SizedBox(
+                              height: 1,
+                              child: Divider(
+                                height: 1,
+                                thickness: 1,
+                                color: appTheme(context).colorScheme.background,
+                              ),
+                            ),
+                            itemBuilder: (ctx, i) {
+                              return Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                child: RadioListTile<int>(
+                                  value: i,
+                                  groupValue: model.statsBoxBehaviourGroupVal,
+                                  onChanged: (val) =>
+                                      model.onStatsBoxBehaviourChanged(val, updateState),
+                                  controlAffinity: ListTileControlAffinity.trailing,
+                                  activeColor: appTheme(context).colorScheme.secondary,
+                                  title: Text(
+                                    statsBoxBehaviours[i],
+                                    style: appTextTheme(ctx).bodyText1?.copyWith(
+                                          color: appTheme(ctx)
+                                                      .iconTheme
+                                                      .color!
+                                                      .computeLuminance() >
+                                                  0.5
+                                              ? appTheme(context).iconTheme.color
+                                              : Colors.black,
+                                        ),
+                                  ),
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    ),
                     icon: const Icon(Icons.line_style),
                     label: Text(
                       'Stats Box Behaviour',
@@ -125,7 +156,29 @@ class SettingsView extends StatelessWidget {
                     onSwitchChanged: model.toggleShowPrevText,
                   ),
                   TextButton.icon(
-                    onPressed: () {},
+                    onPressed: () => showRadioBottomSheet(
+                      context,
+                      child: StatefulBuilder(
+                        builder: (context, updateState) {
+                          return CustomLabelledSlider(
+                            heading: 'Set Countdown',
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                            headingPadding:  const EdgeInsets.only(top: 16, bottom: 8),
+                            sliderValue: model.undoCountdownTime,
+                            isPopup: true,
+                            onSliderChanged: (i) {
+                              updateState(() {
+                                model.undoCountdownTime = i;
+                              });
+                            },
+                            maxSliderValue: 50,
+                            minSliderValue: 5,
+                            intervals: 5,
+                            intervalBreaks: 5,
+                          );
+                        },
+                      ),
+                    ),
                     icon: const Icon(Icons.timer),
                     label: Text(
                       'Change Undo Countdown Time',
