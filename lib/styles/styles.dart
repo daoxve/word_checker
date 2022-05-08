@@ -1,8 +1,5 @@
 import 'package:word_checker/core/exports/exports.dart';
 
-// App version
-const appVersionNumber = '1.1.0';
-
 // Text styles
 const kHeadline1 = TextStyle(
   fontWeight: FontWeight.bold,

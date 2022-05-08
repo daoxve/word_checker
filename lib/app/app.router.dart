@@ -18,6 +18,9 @@ class Routes {
   static const String changeThemeView = '/change-theme-view';
   static const String addThemeView = '/add-theme-view';
   static const String adjustTextfieldFontView = '/adjust-textfield-font-view';
+  static const String licenseView = '/license-view';
+  static const String privacyPolicyView = '/privacy-policy-view';
+  static const String contactDeveloperView = '/contact-developer-view';
   static const all = <String>{
     mainView,
     homeView,
@@ -25,6 +28,9 @@ class Routes {
     changeThemeView,
     addThemeView,
     adjustTextfieldFontView,
+    licenseView,
+    privacyPolicyView,
+    contactDeveloperView,
   };
 }
 
@@ -38,6 +44,9 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.changeThemeView, page: ChangeThemeView),
     RouteDef(Routes.addThemeView, page: AddThemeView),
     RouteDef(Routes.adjustTextfieldFontView, page: AdjustTextfieldFontView),
+    RouteDef(Routes.licenseView, page: LicenseView),
+    RouteDef(Routes.privacyPolicyView, page: PrivacyPolicyView),
+    RouteDef(Routes.contactDeveloperView, page: ContactDeveloperView),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -75,6 +84,24 @@ class StackedRouter extends RouterBase {
     AdjustTextfieldFontView: (data) {
       return CupertinoPageRoute<dynamic>(
         builder: (context) => const AdjustTextfieldFontView(),
+        settings: data,
+      );
+    },
+    LicenseView: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => const LicenseView(),
+        settings: data,
+      );
+    },
+    PrivacyPolicyView: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => const PrivacyPolicyView(),
+        settings: data,
+      );
+    },
+    ContactDeveloperView: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => const ContactDeveloperView(),
         settings: data,
       );
     },

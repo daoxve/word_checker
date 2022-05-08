@@ -9,9 +9,9 @@ export 'package:sliding_up_panel/sliding_up_panel.dart';
 export 'package:smooth_page_indicator/smooth_page_indicator.dart';
 export 'package:syncfusion_flutter_sliders/sliders.dart';
 export 'package:syncfusion_flutter_core/theme.dart';
-export 'package:logger/logger.dart';
 export 'package:stacked/stacked.dart';
 export 'package:stacked/stacked_annotations.dart' hide FormField;
+export 'package:stacked_hooks/stacked_hooks.dart';
 export 'package:stacked_themes/stacked_themes.dart';
 export 'package:stacked_services/stacked_services.dart';
 
@@ -50,3 +50,4 @@ export 'package:word_checker/core/exports/route_exports.dart';
 export 'package:word_checker/ui/widgets/common/custom_appbar.dart';
 export 'package:word_checker/ui/widgets/common/info_tip_button.dart';
 export 'package:word_checker/ui/widgets/common/show_radio_bottomsheet.dart';
+export 'package:word_checker/ui/widgets/common/notch.dart';

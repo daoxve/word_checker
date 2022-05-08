@@ -53,7 +53,7 @@ class HomeView extends StatelessWidget {
                 child: TextField(
                   key: const PageStorageKey('storage-key'),
                   controller: model.textEdController,
-                  maxLines: 35,
+                  maxLines: 104,
                   scrollPhysics: const BouncingScrollPhysics().applyTo(
                     const AlwaysScrollableScrollPhysics(),
                   ),

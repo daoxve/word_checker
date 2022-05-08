@@ -42,15 +42,15 @@ class SettingsViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void onTFScrollBehaviourRadioChanged(int? val, StateSetter updateState) {
-    updateState(() {
-      if (val != null) textFieldScrollBehaviourGroupVal = val;
-    });
+  void onTFScrollBehaviourRadioChanged(int? val) {
+    if (val != null) textFieldScrollBehaviourGroupVal = val;
+    _navigationService.back();
+    notifyListeners();
   }
 
-  void onStatsBoxBehaviourChanged(int? val, StateSetter updateState) {
-    updateState(() {
-      if (val != null) statsBoxBehaviourGroupVal = val;
-    });
+  void onStatsBoxBehaviourChanged(int? val) {
+    if (val != null) statsBoxBehaviourGroupVal = val;
+    _navigationService.back();
+    notifyListeners();
   }
 }

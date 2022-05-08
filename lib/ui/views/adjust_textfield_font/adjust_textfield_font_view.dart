@@ -37,6 +37,9 @@ class AdjustTextfieldFontView extends StatelessWidget {
                 color: appTheme(context).colorScheme.background,
                 child: Column(
                   children: [
+                    Notch(
+                      color: appTheme(context).iconTheme.color?.withOpacity(0.4),
+                    ),
                     CustomLabelledSlider(
                       heading: 'Text size',
                       sliderValue: model.textSize,

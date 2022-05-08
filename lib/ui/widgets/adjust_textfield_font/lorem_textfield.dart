@@ -33,7 +33,7 @@ class LoremTextField extends HookWidget {
           ),
           TextField(
             controller: textfieldController,
-            maxLines: 12,
+            maxLines: 10,
             readOnly: true,
             decoration: InputDecoration(
               hintText: kHintText,

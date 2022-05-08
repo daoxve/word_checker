@@ -10,6 +10,7 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 
 import '../core/exports/exports.dart';
+import '../ui/views/home/home_viewmodel.dart';
 
 final locator = StackedLocator.instance;
 

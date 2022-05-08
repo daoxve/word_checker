@@ -1,4 +1,5 @@
 import '../core/exports/exports.dart';
+import 'package:word_checker/ui/views/home/home_viewmodel.dart';
 
 @StackedApp(
   routes: [
@@ -8,6 +9,9 @@ import '../core/exports/exports.dart';
     CupertinoRoute(page: ChangeThemeView),
     CupertinoRoute(page: AddThemeView),
     CupertinoRoute(page: AdjustTextfieldFontView),
+    CupertinoRoute(page: LicenseView),
+    CupertinoRoute(page: PrivacyPolicyView),
+    CupertinoRoute(page: ContactDeveloperView),
   ],
   dependencies: [
     LazySingleton(classType: NavigationService),
