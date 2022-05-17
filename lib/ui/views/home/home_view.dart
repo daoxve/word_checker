@@ -9,9 +9,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomeViewModel>.reactive(
-      viewModelBuilder: () => locator<HomeViewModel>(),
-      disposeViewModel: false,
-      initialiseSpecialViewModelsOnce: true,
+      viewModelBuilder: () => HomeViewModel(),
       builder: (context, model, child) {
         return Scaffold(
           backgroundColor: appTheme(context).backgroundColor,

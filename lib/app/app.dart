@@ -19,7 +19,10 @@ import 'package:word_checker/ui/views/home/home_viewmodel.dart';
     LazySingleton(classType: SnackbarService),
     LazySingleton(classType: BottomSheetService),
     LazySingleton(classType: AppThemeService),
-    Singleton(classType: HomeViewModel),
+    LazySingleton(classType: LookAndFeelService),
+    LazySingleton(classType: BasicSettingsService),
+    LazySingleton(classType: AboutCategoryService),
+    LazySingleton(classType: DangerCategoryService),
   ],
   logger: StackedLogger(),
 )

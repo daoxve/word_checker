@@ -1,6 +1,6 @@
 import 'core/exports/exports.dart';
 
-import 'package:word_checker/styles/theme_setup.dart' as _themes;
+// import 'package:word_checker/styles/theme_setup.dart' as _themes;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

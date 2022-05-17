@@ -13,8 +13,17 @@ class AdjustTextfieldFontView extends StatelessWidget {
     return ViewModelBuilder<AdjustTextfieldFontViewModel>.reactive(
       viewModelBuilder: () => AdjustTextfieldFontViewModel(),
       builder: (context, model, child) => Scaffold(
-        appBar: const CustomAppbar(
+        appBar: CustomAppbar(
           title: 'Adjust Textfield Font',
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.check),
+              ),
+            ),
+          ],
         ),
         body: Stack(
           children: [

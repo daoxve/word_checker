@@ -4,12 +4,13 @@ class HomeViewModel extends BaseViewModel {
   final log = getLogger('MainViewModel');
 
   // final _navigationService = locator<NavigationService>();
+  final basicSettingsService = locator<BasicSettingsService>();
   final textEdController = TextEditingController();
 
   int wordCount = 0;
   int sentenceCount = 0;
   bool isUndoing = false;
-  int undoTimeLeft = 5;
+  int undoTimeLeft = locator<BasicSettingsService>().undoCountdownTime;
   String? temp;
   TextSelection? _selection;
 

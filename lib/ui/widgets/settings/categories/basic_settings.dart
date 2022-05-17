@@ -25,18 +25,14 @@ class BasicSettings extends HookViewModelWidget<SettingsViewModel> {
             child: StatefulBuilder(
               builder: (context, updateState) {
                 return Padding(
-                  padding: const EdgeInsets.only(bottom: 36.0, top: 18),
+                  padding: const EdgeInsets.only(bottom: 36.0, top: 6),
                   child: CustomLabelledSlider(
-                    heading: 'Set Countdown',
+                    heading: 'Set Countdown time',
                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                     headingPadding: const EdgeInsets.only(top: 16, bottom: 8),
-                    sliderValue: viewModel.undoCountdownTime,
+                    sliderValue: viewModel.basicSettingsService.undoCountdownTime.toDouble(),
                     isPopup: true,
-                    onSliderChanged: (i) {
-                      updateState(() {
-                        viewModel.undoCountdownTime = i;
-                      });
-                    },
+                    onSliderChanged: (i) => viewModel.basicSettingsService.onUndoCountdownChanged(i, updateState),
                     maxSliderValue: 50,
                     minSliderValue: 5,
                     intervals: 5,

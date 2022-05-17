@@ -3,6 +3,7 @@ import 'package:word_checker/core/exports/exports.dart';
 class SettingsViewModel extends BaseViewModel {
   final _dialogService = locator<DialogService>();
   final _navigationService = locator<NavigationService>();
+  final basicSettingsService = locator<BasicSettingsService>();
 
   bool showPreviousTextOnStart = true;
   bool enableHaptics = true;
@@ -10,7 +11,6 @@ class SettingsViewModel extends BaseViewModel {
 
   int textFieldScrollBehaviourGroupVal = 0;
   int statsBoxBehaviourGroupVal = 0;
-  double undoCountdownTime = 5;
 
   void navigateBack() {
     _navigationService.back();
