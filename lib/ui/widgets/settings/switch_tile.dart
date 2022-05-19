@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:word_checker/core/exports/exports.dart';
 
 class SwitchTile extends StatelessWidget {

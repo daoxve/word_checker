@@ -1,5 +1,4 @@
 import '../core/exports/exports.dart';
-import 'package:word_checker/ui/views/home/home_viewmodel.dart';
 
 @StackedApp(
   routes: [

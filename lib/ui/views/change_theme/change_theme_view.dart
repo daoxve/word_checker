@@ -53,14 +53,16 @@ class ChangeThemeView extends HookWidget {
                           getThemeManager(context).selectThemeAtIndex(i);
                         },
                         itemBuilder: (ctx, i) => ThemeDetailCard(
-                          innerContainerColor: model.appThemes[i].backgroundColor,
+                          innerContainerColor:
+                              model.appThemes[i].backgroundColor,
                           themeName: model.themesList[i].name,
                           themeDesc: model.themesList[i].desc,
                           radioValue: i,
                           groupValue: model.groupVal,
                           onRadioChanged: (int? value) {
                             model.toggleRadio(value);
-                            getThemeManager(context).selectThemeAtIndex(value ?? 0);
+                            getThemeManager(context)
+                                .selectThemeAtIndex(value ?? 0);
                           },
                         ),
                       ),
@@ -73,9 +75,17 @@ class ChangeThemeView extends HookWidget {
               SmoothPageIndicator(
                 controller: _pageController,
                 count: model.appThemes.length,
+                onDotClicked: (index) {
+                  _pageController.animateToPage(
+                    index,
+                    duration: const Duration(seconds: 1),
+                    curve: Curves.easeIn,
+                  );
+                },
                 effect: SlideEffect(
                   activeDotColor: appTheme(context).colorScheme.secondary,
-                  dotColor: appTheme(context).colorScheme.secondary.withOpacity(0.2),
+                  dotColor:
+                      appTheme(context).colorScheme.secondary.withOpacity(0.2),
                   dotHeight: 10,
                   dotWidth: 20,
                   spacing: 16,
